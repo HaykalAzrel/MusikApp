@@ -1,0 +1,66 @@
+import { Stack } from "expo-router";
+import { View, Text, TextInput, StyleSheet } from "react-native";
+import { colors } from "@/constants/tokens";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { useSearch, SearchProvider } from "@/hooks/navigationSearch";
+
+export default function SongsLayout() {
+  return (
+    <SearchProvider>
+      <Stack>
+        <Stack.Screen
+          name="index"
+          options={{
+            header: () => <CustomLargeHeader />,
+          }}
+        />
+      </Stack>
+    </SearchProvider>
+  );
+}
+
+function CustomLargeHeader() {
+  const { search, setSearch } = useSearch();
+
+  return (
+    <SafeAreaView style={styles.safeArea} edges={["top"]}>
+      <View style={styles.container}>
+        <Text style={styles.title}>Songs</Text>
+
+        <TextInput
+          style={styles.search}
+          placeholder="Search..."
+          placeholderTextColor={colors.text + "88"}
+          value={search}
+          onChangeText={setSearch}
+        />
+      </View>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  safeArea: {
+    backgroundColor: colors.background,
+  },
+  container: {
+    backgroundColor: colors.background,
+    paddingTop: 50,
+    paddingHorizontal: 16,
+    paddingBottom: 16,
+  },
+  title: {
+    fontSize: 32,
+    fontWeight: "bold",
+    color: colors.text,
+    marginBottom: 12,
+  },
+  search: {
+    backgroundColor: "#222",
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    fontSize: 16,
+    color: colors.text,
+  },
+});
