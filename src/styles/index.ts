@@ -17,5 +17,18 @@ export const utilsStyle = StyleSheet.create({
         borderColor: colors.textMuted,
         borderWidth: StyleSheet.hairlineWidth,
         opacity: 0.3,
+    },
+    emptyContentText: {
+        ...defaultStyle.text,
+        color: colors.textMuted,
+        textAlign: 'center',
+        marginTop: 20,
+    },
+    emptyContentImage: {
+        width: 200,
+        height: 200,
+        alignSelf: 'center',
+        marginTop: 40,
+        opacity: 0.5,
     }
 })

@@ -2,7 +2,7 @@ export const colors = {
     primary: '#a96524ff',
     background: '#000000',
     text: '#FFFFFF',
-    textMuted: '#2a2a2aff',
+    textMuted: '#888888',
     icon: '#FFFFFF',
     maximumTrackTintColor: '#232323ff',
     minimumTrackTintColor: '#363636ff',
