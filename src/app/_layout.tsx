@@ -26,11 +26,11 @@ const App = () => {
   useLogPlayerState();
 
   return (
-		<SafeAreaProvider>
-
-				<RootNavigation />
-
-				<StatusBar style="auto" />
+		<SafeAreaProvider>      
+        {/*<GestureHandlerRootView style={{flex: 1}}>*/}
+				  <RootNavigation />
+          <StatusBar style="auto" />
+        {/*</GestureHandlerRootView>*/}
 		</SafeAreaProvider>
 	)
 };
@@ -39,6 +39,17 @@ const RootNavigation = () => {
    return ( 
     <Stack>
       <Stack.Screen name="(tabs)" options={{ headerShown: false }}/>
+
+      <Stack.Screen 
+        name="player" 
+        options={{
+          presentation: 'card',
+          gestureEnabled: true,
+          gestureDirection: 'vertical',
+          animationDuration: 400,
+          headerShown: false,
+        }}
+      />
     </Stack>
    )
 };

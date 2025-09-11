@@ -5,13 +5,20 @@ import { defaultStyle } from "@/styles";
 import { TouchableOpacity, StyleSheet, Image, View, Text, ViewProps } from "react-native";
 import { Track, useActiveTrack } from "react-native-track-player"
 import { MovingText } from "./MovingText";
+import { useRouter } from "expo-router";
+import { useRoute } from "@react-navigation/native";
 
 
 export const FloatingPlayer = ({style}: ViewProps) => {
+    const router = useRouter();
     const activeTrack = useActiveTrack();
     const lastActiveTrack = useLastActiveTrack();
 
     const displayedTrack = activeTrack ?? lastActiveTrack;
+
+    const handlePress = () => {
+        router.navigate('/player');
+    }
 
     if (!displayedTrack) {
         return null;
@@ -19,7 +26,8 @@ export const FloatingPlayer = ({style}: ViewProps) => {
 
     return (
     <TouchableOpacity 
-        activeOpacity={0.9} 
+        activeOpacity={0.9}
+        onPress={handlePress}
         style={[styles.container, style]}>
         <>
                 <Image

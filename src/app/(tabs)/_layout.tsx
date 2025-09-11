@@ -61,7 +61,8 @@ const TabsNavigation = () => {
             />
         </Tabs>
 
-        <FloatingPlayer style={{
+        <FloatingPlayer 
+        style={{
             position: 'absolute',
             left: 8,
             right: 8,

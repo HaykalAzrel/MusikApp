@@ -2,44 +2,37 @@ import { Stack } from "expo-router";
 import { View, Text, TextInput, StyleSheet } from "react-native";
 import { colors } from "@/constants/tokens";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useState } from "react";
+import { SearchProvider, useSearch } from "@/hooks/navigationSearch";
 
-export default function FavotiteLayout() {
-  const [search, setSearch] = useState("");
-
+export default function FavoriteLayout() {
   return (
-    <Stack>
-      <Stack.Screen
-        name="index"
-        options={{
-          header: () => (
-            <CustomLargeHeader search={search} onSearchChange={setSearch} />
-          ),
-        }}
-        initialParams={{ search }}
-      />
-    </Stack>
+    <SearchProvider>
+      <Stack>
+        <Stack.Screen
+          name="index"
+          options={{
+            header: () => <CustomLargeHeader />,
+          }}
+        />
+      </Stack>
+    </SearchProvider>
   );
 }
 
-function CustomLargeHeader({
-  search,
-  onSearchChange,
-}: {
-  search: string;
-  onSearchChange: (text: string) => void;
-}) {
+function CustomLargeHeader() {
+  const { search, setSearch } = useSearch();
+
   return (
     <SafeAreaView style={styles.safeArea} edges={["top"]}>
       <View style={styles.container}>
-        <Text style={styles.title}>Favorites</Text>
+        <Text style={styles.title}>Songs</Text>
 
         <TextInput
           style={styles.search}
           placeholder="Search..."
           placeholderTextColor={colors.text + "88"}
           value={search}
-          onChangeText={onSearchChange}
+          onChangeText={setSearch}
         />
       </View>
     </SafeAreaView>
