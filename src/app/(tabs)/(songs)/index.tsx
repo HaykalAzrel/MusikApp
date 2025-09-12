@@ -12,7 +12,9 @@ const SongsScreen = () => {
 
   const filteredTracks = useMemo(() => {
     if (!search) return library;
-    return library.filter((track) => trackTitleFilter(track.title, search));
+
+    // gunakan trackTitleFilter(search) lalu pass ke filter
+    return library.filter(trackTitleFilter(search));
   }, [search]);
 
   return (

@@ -2,11 +2,10 @@ import { useLastActiveTrack } from "@/hooks/useLastActiveTrack";
 import { PlayPauseButton, SkipToNextButton, SkipToPreviousButton } from "./PlayerControls";
 import { unknownTrackImageUrl } from "@/constants/images";
 import { defaultStyle } from "@/styles";
-import { TouchableOpacity, StyleSheet, Image, View, Text, ViewProps } from "react-native";
-import { Track, useActiveTrack } from "react-native-track-player"
+import { TouchableOpacity, StyleSheet, Image, View, ViewProps } from "react-native";
+import { useActiveTrack } from "react-native-track-player"
 import { MovingText } from "./MovingText";
 import { useRouter } from "expo-router";
-import { useRoute } from "@react-navigation/native";
 
 
 export const FloatingPlayer = ({style}: ViewProps) => {

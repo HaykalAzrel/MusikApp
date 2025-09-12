@@ -1,3 +1,4 @@
+// FavoriteLayout.tsx
 import { Stack } from "expo-router";
 import { View, Text, TextInput, StyleSheet } from "react-native";
 import { colors } from "@/constants/tokens";
@@ -25,7 +26,7 @@ function CustomLargeHeader() {
   return (
     <SafeAreaView style={styles.safeArea} edges={["top"]}>
       <View style={styles.container}>
-        <Text style={styles.title}>Songs</Text>
+        <Text style={styles.title}>Favorites</Text>
 
         <TextInput
           style={styles.search}

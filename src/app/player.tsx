@@ -23,8 +23,7 @@ const PlayerScreen = () => {
 
   const isFavorite = false;
   const toggleFavorite = () => {};
-
-  // pakai hook ambil warna cover
+  
   const colorsFromCover = usePlayerBackground(
     activeTrack?.artwork ?? unknownTrackImageUrl
   );
